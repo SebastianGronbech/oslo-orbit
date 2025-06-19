@@ -1,0 +1,92 @@
+# =====================
+# .NET / Visual Studio
+# =====================
+
+# Build output
+**/bin/
+**/obj/
+
+# Visual Studio cache files
+.vs/
+.vscode/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+
+# NuGet packages
+*.nupkg
+packages/
+.nuget/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Entity Framework Core Migrations
+Migrations/
+
+# Publish output
+**/publish/
+
+**/appsettings*.json
+!**/appsettings.json
+
+# Logs
+*.log
+
+# =====================
+# React / Vite / Node.js
+# =====================
+
+# Node modules
+client/node_modules/
+
+# Vite cache / build
+client/dist/
+client/build/
+client/.vite/
+
+# Env files
+client/.env*
+client/.env.local
+client/.env.*.local
+
+# npm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =====================
+# Docker
+# =====================
+
+# Docker files (optional: ignore local docker-compose overrides)
+docker-compose.override.yml
+
+# =====================
+# OS / System
+# =====================
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =====================
+# Others
+# =====================
+
+# Backup files
+*.bak
+*.backup
+*.swp
+*~
+
+# Coverage output
+coverage/
