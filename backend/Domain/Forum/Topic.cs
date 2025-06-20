@@ -2,7 +2,7 @@ using OsloOrbit.SharedKernel;
 
 namespace OsloOrbit.Domain.Forum;
 
-public sealed class Thread : BaseEntity
+public sealed class Topic : BaseEntity
 {
     public Guid Id { get; private init; }
     public string Title { get; private set; }
@@ -10,14 +10,14 @@ public sealed class Thread : BaseEntity
     private readonly List<Post> _posts = [];
     public IReadOnlyList<Post> Posts => _posts;
 
-    private Thread(Guid id, string title)
+    private Topic(Guid id, string title)
     {
         Id = id;
         Title = title;
     }
 
-    public static Thread Create(Guid id, string title)
+    public static Topic Create(Guid id, string title)
     {
-        return new Thread(id, title);
+        return new Topic(id, title);
     }
 }
