@@ -14,7 +14,8 @@ internal sealed class TopicRepository : ITopicRepository
 
     public Task AddAsync(Topic topic, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        _dbContext.Topics.Add(topic);
+        return _dbContext.SaveChangesAsync(cancellationToken);
     }
 
     public Task<Topic?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
