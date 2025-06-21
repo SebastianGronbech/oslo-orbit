@@ -6,7 +6,7 @@ namespace OsloOrbit.Application.Forum;
 
 public class CreateTopic
 {
-    public record Command(string Title) : IRequest<Result<Guid>>;
+    public record Command(string Title, Guid CreatorId, string InitialPostContent) : IRequest<Result<Guid>>;
 
     public class Handler : IRequestHandler<Command, Result<Guid>>
     {
@@ -19,8 +19,9 @@ public class CreateTopic
 
         public async Task<Result<Guid>> Handle(Command request, CancellationToken cancellationToken)
         {
-            var topic = Topic.Create(Guid.NewGuid(), request.Title);
+            var topic = Topic.Create(Guid.CreateVersion7(), request.Title, request.CreatorId, request.InitialPostContent);
             await _topicRepository.AddAsync(topic, cancellationToken);
+
             return Result.Ok(topic.Id);
         }
     }
