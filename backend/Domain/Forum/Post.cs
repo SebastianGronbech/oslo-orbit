@@ -8,7 +8,7 @@ public sealed class Post : BaseEntity
     public Guid AuthorId { get; private set; }
     public string Content { get; private set; }
     private readonly List<Comment> _comments = [];
-    public IReadOnlyList<Comment> Comments => _comments;
+    public IReadOnlyList<Comment> Comments => _comments.AsReadOnly();
 
     private Post(Guid id, Guid authorId, string content)
     {
