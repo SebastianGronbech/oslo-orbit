@@ -22,9 +22,14 @@ public sealed class Topic : BaseEntity
     {
         var topic = new Topic(id, title, creatorId);
 
-        var post = Post.Create(Guid.CreateVersion7(), creatorId, initialPostContent);
-        topic._posts.Add(post);
+        topic.AddPost(creatorId, initialPostContent);
 
         return topic;
+    }
+
+    public void AddPost(Guid authorId, string content)
+    {
+        var post = Post.Create(Guid.CreateVersion7(), authorId, content);
+        _posts.Add(post);
     }
 }
