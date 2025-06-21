@@ -28,6 +28,7 @@ public class GetById
             return Result.Ok(new TopicDto(
                 topic.Id,
                 topic.Title,
+                topic.CreatorId,
                 [.. topic.Posts.Select(p => new PostDto(
                     p.Id,
                     p.AuthorId,
