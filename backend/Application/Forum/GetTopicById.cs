@@ -4,7 +4,7 @@ using OsloOrbit.Domain.Forum;
 
 namespace OsloOrbit.Application.Forum;
 
-public class GetById
+public class GetTopicById
 {
     public record Query(Guid Id) : IRequest<Result<TopicDto>>;
 

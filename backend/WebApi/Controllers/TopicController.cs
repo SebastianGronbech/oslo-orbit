@@ -40,7 +40,7 @@ public class TopicController : ControllerBase
             return BadRequest("Invalid topic ID.");
         }
 
-        var result = await _mediator.Send(new GetById.Query(id), cancellationToken);
+        var result = await _mediator.Send(new GetTopicById.Query(id), cancellationToken);
 
         if (result.IsFailed)
         {
