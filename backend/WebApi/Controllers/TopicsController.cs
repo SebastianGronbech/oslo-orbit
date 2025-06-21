@@ -6,11 +6,11 @@ namespace OsloOrbit.WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class TopicController : ControllerBase
+public class TopicsController : ControllerBase
 {
     private readonly ISender _mediator;
 
-    public TopicController(ISender mediator)
+    public TopicsController(ISender mediator)
     {
         _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
     }
