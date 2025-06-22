@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using OsloOrbit.Domain.Forum;
 using OsloOrbit.Infrastructure.Persistence;
 using OsloOrbit.Infrastructure.Persistence.Repository;
+using OsloOrbit.SharedKernel;
 
 namespace OsloOrbit.Infrastructure;
 
@@ -17,6 +18,7 @@ public static class DependencyInjection
             options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
                 b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<ITopicRepository, TopicRepository>();
 
         return services;
