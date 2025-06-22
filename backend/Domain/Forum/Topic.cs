@@ -32,4 +32,15 @@ public sealed class Topic : BaseEntity
         var post = Post.Create(Guid.CreateVersion7(), authorId, content);
         _posts.Add(post);
     }
+
+    public void AddCommentToPost(Guid postId, Guid authorId, string content)
+    {
+        var post = _posts.FirstOrDefault(p => p.Id == postId);
+        if (post is null)
+        {
+            throw new InvalidOperationException($"Post with ID {postId} not found in topic {Id}.");
+        }
+
+        post.AddComment(authorId, content);
+    }
 }
