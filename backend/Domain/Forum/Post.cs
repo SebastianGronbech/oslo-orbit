@@ -21,4 +21,10 @@ public sealed class Post : BaseEntity
     {
         return new Post(id, authorId, content);
     }
+
+    public void AddComment(Guid authorId, string content)
+    {
+        var comment = Comment.Create(Guid.CreateVersion7(), authorId, content);
+        _comments.Add(comment);
+    }
 }
